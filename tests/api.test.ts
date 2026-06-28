@@ -34,7 +34,7 @@ describe("typed API server", () => {
     const payload = (await response.json()) as { items: { id: string }[] };
 
     expect(response.status).toBe(200);
-    expect(payload.items.map((item) => item.id)).toEqual(["hello-world", "types-and-values"]);
+    expect(payload.items.map((item) => item.id)).toEqual(["hello-world", "types-and-values", "functions-and-objects"]);
   });
 
   it("returns typed errors for unknown items", async () => {
@@ -50,4 +50,3 @@ describe("typed API server", () => {
     expect(() => readPort("not-a-port")).toThrow("PORT must be an integer");
   });
 });
-

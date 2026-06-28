@@ -4,10 +4,12 @@ export type Difficulty = (typeof difficulties)[number];
 export type LessonStatus = "todo" | "doing" | "done";
 
 export type RoadmapItem = {
+  readonly command: string;
   readonly id: string;
   readonly title: string;
   readonly description: string;
   readonly difficulty: Difficulty;
+  readonly folder: string;
   readonly minutes: number;
   readonly status: LessonStatus;
   readonly topics: readonly string[];
@@ -22,6 +24,8 @@ export type RoadmapSummary = {
 
 export const roadmapItems: readonly RoadmapItem[] = [
   {
+    command: "pnpm lesson:01",
+    folder: "lessons/01-hello-world",
     id: "hello-world",
     title: "Hello World",
     description: "Run a TypeScript file and learn where annotations help.",
@@ -31,6 +35,8 @@ export const roadmapItems: readonly RoadmapItem[] = [
     topics: ["setup", "inference", "annotations"],
   },
   {
+    command: "pnpm lesson:02",
+    folder: "lessons/02-types-and-values",
     id: "types-and-values",
     title: "Types And Values",
     description: "Model primitives, literal values, arrays, tuples, and readonly data.",
@@ -40,6 +46,19 @@ export const roadmapItems: readonly RoadmapItem[] = [
     topics: ["primitives", "literals", "arrays", "tuples"],
   },
   {
+    command: "pnpm lesson:03",
+    folder: "lessons/03-functions-and-objects",
+    id: "functions-and-objects",
+    title: "Functions And Objects",
+    description: "Describe data moving through functions and return new objects safely.",
+    difficulty: "beginner",
+    minutes: 25,
+    status: "done",
+    topics: ["functions", "objects", "readonly", "optional fields"],
+  },
+  {
+    command: "pnpm lesson:04",
+    folder: "lessons/04-unions-and-narrowing",
     id: "unions-and-narrowing",
     title: "Unions And Narrowing",
     description: "Represent multiple states and let control flow narrow each branch.",
@@ -49,13 +68,59 @@ export const roadmapItems: readonly RoadmapItem[] = [
     topics: ["unions", "narrowing", "exhaustive checks"],
   },
   {
-    id: "api-and-frontend",
-    title: "API And Frontend",
-    description: "Share types between a Node API and a browser UI.",
+    command: "pnpm lesson:05",
+    folder: "lessons/05-generics-and-utilities",
+    id: "generics-and-utilities",
+    title: "Generics And Utilities",
+    description: "Write reusable helpers without losing type information.",
+    difficulty: "intermediate",
+    minutes: 35,
+    status: "todo",
+    topics: ["generics", "utility types", "mapped types"],
+  },
+  {
+    command: "pnpm lesson:06",
+    folder: "lessons/06-async-and-errors",
+    id: "async-and-errors",
+    title: "Async And Errors",
+    description: "Make async success and failure explicit with result unions.",
+    difficulty: "intermediate",
+    minutes: 35,
+    status: "todo",
+    topics: ["async", "promises", "result types"],
+  },
+  {
+    command: "pnpm lesson:07",
+    folder: "lessons/07-modules-and-domain-modeling",
+    id: "modules-and-domain-modeling",
+    title: "Modules And Domain Modeling",
+    description: "Move useful types into modules that API, frontend, and tests can share.",
+    difficulty: "advanced",
+    minutes: 40,
+    status: "todo",
+    topics: ["modules", "domain modeling", "shared types"],
+  },
+  {
+    command: "pnpm dev:api",
+    folder: "examples/api",
+    id: "typed-api",
+    title: "Typed API",
+    description: "Expose shared roadmap data through a zero-dependency Node API.",
     difficulty: "advanced",
     minutes: 45,
     status: "todo",
-    topics: ["node", "api", "fetch", "vite"],
+    topics: ["node", "http", "json", "runtime validation"],
+  },
+  {
+    command: "pnpm dev:web",
+    folder: "apps/frontend",
+    id: "frontend-workspace",
+    title: "Frontend Workspace",
+    description: "Render API data in a browser while validating unknown network payloads.",
+    difficulty: "advanced",
+    minutes: 45,
+    status: "todo",
+    topics: ["vite", "fetch", "dom", "ui state"],
   },
 ];
 
@@ -86,4 +151,3 @@ export function getRoadmapSummary(items: readonly RoadmapItem[] = roadmapItems):
     totalMinutes,
   };
 }
-
