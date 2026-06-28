@@ -20,6 +20,5 @@
     "types": ["node", "vitest/globals"],
     "useDefineForClassFields": true
   },
-  "include": ["apps/**/*.ts", "examples/**/*.ts", "lessons/**/*.ts", "src/**/*.ts", "tests/**/*.ts", "vite.config.ts"]
+  "include": ["api/**/*.ts", "lessons/**/*.ts", "src/**/*.ts", "tests/**/*.ts", "vite.config.ts"]
 }
-
