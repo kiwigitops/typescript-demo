@@ -43,6 +43,13 @@ Then open the Vite URL printed by `pnpm dev:web`.
 | API | Node HTTP API with typed JSON | `pnpm dev:api` |
 | Web | Frontend fetching the API | `pnpm dev:web` |
 
+## Practice Docs
+
+- [Full learning path](docs/LEARNING_PATH.md)
+- [TypeScript cheatsheet](docs/CHEATSHEET.md)
+- [Practice exercises](docs/EXERCISES.md)
+- [Troubleshooting](docs/TROUBLESHOOTING.md)
+
 ## Repository Map
 
 ```text
@@ -83,4 +90,3 @@ pnpm dev:web     # Vite frontend with /api proxy
 ## Philosophy
 
 Good TypeScript is not about making every type clever. Prefer simple domain types, narrow inputs at the edges, keep runtime data honest, and let the compiler protect the core of your program.
-
