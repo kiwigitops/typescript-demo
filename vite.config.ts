@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   build: {
@@ -11,5 +11,8 @@ export default defineConfig({
       "/api": "http://127.0.0.1:4174",
     },
   },
+  test: {
+    include: ["tests/**/*.test.ts"],
+    root: ".",
+  },
 });
-

@@ -1,0 +1,25 @@
+import { describe, expect, it } from "vitest";
+import { filterByDifficulty, findRoadmapItem, getRoadmapSummary, isDifficulty, roadmapItems } from "../src/shared/roadmap";
+
+describe("roadmap domain model", () => {
+  it("summarizes completion and time", () => {
+    const summary = getRoadmapSummary(roadmapItems);
+
+    expect(summary.totalItems).toBe(4);
+    expect(summary.completedItems).toBe(2);
+    expect(summary.completionPercent).toBe(50);
+    expect(summary.totalMinutes).toBe(105);
+  });
+
+  it("filters by difficulty", () => {
+    const beginnerItems = filterByDifficulty("beginner");
+
+    expect(beginnerItems.map((item) => item.id)).toEqual(["hello-world", "types-and-values"]);
+  });
+
+  it("finds known items and rejects unknown difficulty labels", () => {
+    expect(findRoadmapItem("api-and-frontend")?.difficulty).toBe("advanced");
+    expect(isDifficulty("expert")).toBe(false);
+  });
+});
+
